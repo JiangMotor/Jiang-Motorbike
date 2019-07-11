@@ -14,4 +14,5 @@ public class Payment {
     private int id;
     private String payment_link;
     private String product;
+    private String product_name;
 }

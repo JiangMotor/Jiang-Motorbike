@@ -19,6 +19,7 @@ public class PaymentService {
             Payment y = new Payment();
             y.setPayment_link(from.getPayment_link());
             y.setProduct(from.getProduct());
+            y.setProduct_name(from.getProduct_name());
 
             System.out.println(y);
             payment.save(y);
@@ -34,6 +35,7 @@ public class PaymentService {
            var y = payment.findById(from.getId()).get();
            y.setPayment_link(from.getPayment_link());
            y.setProduct(from.getProduct());
+           y.setProduct_name(from.getProduct_name());
    
             payment.save(y);
            return true;
