@@ -119,7 +119,7 @@ public class JiangmotorbikeConller {
     private BranchService branch;
 
     @GetMapping(value = "/Branch")
-    public Iterable<Branch> branch(){
+    public Iterable<Branch> branch() {
         return branch.findAll();
     }
     @PostMapping(value="/addBranch")
@@ -135,5 +135,4 @@ public class JiangmotorbikeConller {
     public ResponseEntity<Boolean> delBranch(@PathVariable int id){
         return new ResponseEntity<Boolean>(branch.delBranch(id),HttpStatus.OK);
     } 
-
 }
