@@ -1,5 +1,8 @@
 package com.example.jiangmotorbike;
 
+
+import com.example.jiangmotorbike.model.branch.Branch;
+import com.example.jiangmotorbike.model.branch.BranchService;
 import com.example.jiangmotorbike.model.category.Category;
 import com.example.jiangmotorbike.model.category.CategoryService;
 import com.example.jiangmotorbike.model.member.Member;
@@ -112,6 +115,25 @@ public class JiangmotorbikeConller {
         return new ResponseEntity<Boolean>(position.delPosition(id),HttpStatus.OK);
     } 
 
+    @Autowired
+    private BranchService branch;
 
+    @GetMapping(value = "/Branch")
+    public Iterable<Branch> branch(){
+        return branch.findAll();
+    }
+    @PostMapping(value="/addBranch")
+    public ResponseEntity<Boolean> addBranch(@RequestBody Branch model){
+        // System.out.println(model);
+        return new ResponseEntity<Boolean>(branch.addBranch(model),HttpStatus.OK);
+    }
+    @PutMapping(value="/updateBranch")
+    public ResponseEntity<Boolean> updateBranch(@RequestBody Branch model){
+        return new ResponseEntity<Boolean>(branch.updateBranch(model),HttpStatus.OK);
+    }
+    @DeleteMapping(value="/delBranch/{id}")
+    public ResponseEntity<Boolean> delBranch(@PathVariable int id){
+        return new ResponseEntity<Boolean>(branch.delBranch(id),HttpStatus.OK);
+    } 
 
 }

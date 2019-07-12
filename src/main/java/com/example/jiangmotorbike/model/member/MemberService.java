@@ -20,7 +20,7 @@ public class MemberService {
             y.setMember_id(from.getMember_id());
             y.setMember_name(from.getMember_name());
             y.setPosition(from.getPosition());
-        
+            y.setBranch(from.getBranch());
             
 
             System.out.println(y);
@@ -38,6 +38,7 @@ public class MemberService {
            y.setMember_id(from.getMember_id());
             y.setMember_name(from.getMember_name());
             y.setPosition(from.getPosition());
+            y.setBranch(from.getBranch());
 
             member.save(y);
            return true;

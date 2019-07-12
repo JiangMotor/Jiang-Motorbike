@@ -1,4 +1,4 @@
-package com.example.jiangmotorbike.model.member;
+package com.example.jiangmotorbike.model.branch;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,15 +8,10 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Member{
+public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String member_id;
-    private String member_name;
-    private String position;
-    private String branch;
-  
-
+    private String Branch;
 
 }
