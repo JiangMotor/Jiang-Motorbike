@@ -17,7 +17,7 @@ public class BranchService {
     public boolean addBranch(Branch from){
         try{
             Branch y = new Branch();
-            y.setBranch(from.getBranch());
+            y.setBranch_name(from.getBranch_name());
 
 
             System.out.println(y);
@@ -32,7 +32,7 @@ public class BranchService {
     public boolean updateBranch(Branch from){
         try{
            var y = branch.findById(from.getId()).get();
-           y.setBranch(from.getBranch());
+           y.setBranch_name(from.getBranch_name());
            
            branch.save(y);
            return true;

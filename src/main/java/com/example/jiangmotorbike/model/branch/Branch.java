@@ -12,6 +12,6 @@ public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String branch;
+    private String branch_name;
 
 }
