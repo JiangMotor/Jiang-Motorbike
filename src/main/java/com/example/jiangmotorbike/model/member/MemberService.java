@@ -3,6 +3,7 @@ package com.example.jiangmotorbike.model.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import lombok.var;
 
 @Service
@@ -13,7 +14,8 @@ public class MemberService {
     public Iterable<Member> findAll(){
         return member.findAll();
     }
-
+    
+    
     public boolean addMember(Member from){
         try{
             Member y = new Member();

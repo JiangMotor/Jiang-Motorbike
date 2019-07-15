@@ -12,7 +12,7 @@ public class Member{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String member_id;
+    public String member_id;
     private String member_name;
     private String position;
     private String branch;

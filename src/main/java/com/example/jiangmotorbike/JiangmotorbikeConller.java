@@ -1,11 +1,11 @@
 package com.example.jiangmotorbike;
 
-
 import com.example.jiangmotorbike.model.branch.Branch;
 import com.example.jiangmotorbike.model.branch.BranchService;
 import com.example.jiangmotorbike.model.category.Category;
 import com.example.jiangmotorbike.model.category.CategoryService;
 import com.example.jiangmotorbike.model.member.Member;
+import com.example.jiangmotorbike.model.member.MemberRrpository;
 import com.example.jiangmotorbike.model.member.MemberService;
 import com.example.jiangmotorbike.model.payment.Payment;
 import com.example.jiangmotorbike.model.payment.PaymentService;
@@ -24,11 +24,27 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.var;
+
 @CrossOrigin
 @RestController
 public class JiangmotorbikeConller {
+    @Autowired
+    private MemberRrpository memId;
 
+    @PostMapping(value="/MemberID")
+    public ResponseEntity<Boolean> addMemberID(@RequestBody Member model){
+        // System.out.println(model);
+        var filter = memId.findByMenberId(model.member_id);
+        var temp = false;
+        if(filter.size() > 0)
+        temp = true;
+
+    return new ResponseEntity<Boolean>(temp,HttpStatus.OK);
+        // return new ResponseEntity<Boolean>(memId.findByMenberId(model),HttpStatus.OK);
+    }
     
+
     @Autowired
     private CategoryService category;
 
@@ -134,5 +150,10 @@ public class JiangmotorbikeConller {
     @DeleteMapping(value="/delBranch/{id}")
     public ResponseEntity<Boolean> delBranch(@PathVariable int id){
         return new ResponseEntity<Boolean>(branch.delBranch(id),HttpStatus.OK);
-    } 
+    }
+    
+    
+   
+    
+  
 }
